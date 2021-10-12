@@ -9,3 +9,4 @@ This is a STT stream API web-page example for testing.
 5. cd your_local_repo_root
 6. Start the server with the command : http-server -a localhost -p 80
 7. Start web browser and click button, we will start transcribing & displaying the text.
+   (URL must be localhost or 127.0.0.1 or https://... for microphone input.)
