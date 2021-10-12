@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Intelloid STT(Speech-To-Text) stream web example</title>
+
+        <link href="data:image/gif;" rel="icon" type="image/x-icon" />
+
+        <!-- Bootstrap -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/ribbon.css" />
+
+        <!-- wavesurfer.js -->
+        <script src="https://unpkg.com/wavesurfer.js/dist/wavesurfer.js"></script>
+
+        <!-- microphone plugin -->
+        <script src="wavesurfer.microphone.js"></script>
+
+        <!-- App -->
+        <script src="app.js"></script>
+
+		<style>
+		#sttresult {
+		  width: 100%;
+		  padding: 50px 0;
+		  text-align: center;
+		  background-color: lightblue;
+		  margin-top: 20px;
+		}
+		</style>
+    </head>
+
+    <body itemscope itemtype="http://schema.org/WebApplication">
+        <div class="container">
+            <div class="header">
+                <h1 itemprop="name"><a href="http://www.intelloid.com">Intelloid</a> STT(Speech-To-Text) stream web example</h1>
+            </div>
+
+            <div id="demo">
+                <div id="waveform"></div>
+				<div id="sttresult"></div>
+                <div class="controls">
+                    <button id="micBtn" class="btn btn-primary" data-action="start">
+                        Microphone:
+                        <i class="glyphicon glyphicon-play"></i>
+                        Start
+                        /
+                        <i class="glyphicon glyphicon-stop"></i>
+                        Stop
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="github-fork-ribbon-wrapper right">
+            <div class="github-fork-ribbon">
+                <a itemprop="isBasedOnUrl" href="https://github.com/intelloid/stt-stream-web">Fork me on GitHub</a>
+            </div>
+        </div>
+    </body>
+</html>
