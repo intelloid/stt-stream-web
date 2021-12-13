@@ -3,7 +3,7 @@ This is a STT stream API web-page example for testing.
  
 # How To Install and Run the Project
 1. Clone the repo to your local machine.
-2. (Check webServerURL address of [app.js](./app.js))
+2. (Check webServerURL address of [app.js](./app.js#L6))
 3. All you need is a webserver. If you own your (static) webserver to serve your_local_repo_root, start it and jump to step 7.
 4. Or install a good "ready-to-use" Node.js http-server. `npm install http-server -g`
 5. `cd your_local_repo_root`
