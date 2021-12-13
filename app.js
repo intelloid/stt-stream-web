@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 context = new AudioContext({
 							sampleRate: 16000,
 						});
-                processor = context.createScriptProcessor(1024, 1, 1);
+                processor = context.createScriptProcessor(4096, 1, 1);
             }
 
             // Init wavesurfer
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 audioScriptProcessor: processor || null,
                 plugins: [
                     WaveSurfer.microphone.create({
-                        bufferSize: 1024,
+                        bufferSize: 4096,
                         numberOfInputChannels: 1,
                         numberOfOutputChannels: 1,
                         constraints: {
