@@ -3,7 +3,7 @@
 var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 var wavesurfer, context, processor;
 var ws;
-var webServerURL = "wss://webstream00.intelloid.click:8543/intelloid-STT-stream-web/websocket";
+var webServerURL = "wss://nlu-00.intelloia.com:38743/intelloid-STT-stream-web/websocket";
 
 //show transcribing result text string
 function printSttResult(result) {
