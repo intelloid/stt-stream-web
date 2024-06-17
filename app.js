@@ -3,11 +3,23 @@
 var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 var wavesurfer, context, processor;
 var ws;
+const urlParams = new URLSearchParams(window.location.search);
+const langParam = urlParams.get('language');
 var webServerURL = "wss://nlu-00.intelloia.com:38743/intelloid-STT-stream-web/websocket";
+if (langParam) webServerURL = webServerURL + "?language=" + langParam;
 
 //show transcribing result text string
-function printSttResult(result) {
-	document.getElementById("sttresult").innerHTML = result;	
+function printSttResult(result, status) {
+    var resultElement = document.getElementById("sttresult");
+    if (status == "FINAL") {
+        resultElement.style.color = "black";	
+    } else if (status == "PARTIAL") {
+        resultElement.style.color = "gray";	
+    } else if (status == "FINAL_A1") {
+        resultElement.style.color = "blue";	
+        //resultElement.style.fontWeight = "bold";
+    }
+    resultElement.innerHTML = result;	
 }
 
 // Init & load
@@ -60,9 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		        if(event.data != ""){
 			        console.info(event.data);
 			        const obj = JSON.parse(event.data);
-			        if(obj.status == "FINAL") {
+			        if(obj.status == "FINAL" || obj.status == "PARTIAL" || obj.status == "FINAL_A1") {
 			        	if(obj.results[0].sentence != 0) {
-							printSttResult(obj.results[0].sentence);
+							printSttResult(obj.results[0].sentence, obj.status);
 							var result = obj.results[0].sentence;
 							console.info(result);
 							if(result.includes("stop") == true) micBtn.click();							
@@ -96,9 +108,9 @@ document.addEventListener('DOMContentLoaded', function() {
 					if(event.data != "") {
 				        console.info(event.data);
 				        const obj = JSON.parse(event.data);
-				        if(obj.status == "FINAL") {
+				        if(obj.status == "FINAL" || obj.status == "PARTIAL" || obj.status == "FINAL_A1") {
 							if(obj.results[0].sentence != "") 
-								printSttResult(obj.results[0].sentence);
+								printSttResult(obj.results[0].sentence, obj.status);
 						}
 					}
 			    }
