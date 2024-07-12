@@ -5,7 +5,7 @@ var wavesurfer, context, processor;
 var ws;
 const urlParams = new URLSearchParams(window.location.search);
 const langParam = urlParams.get('language');
-var webServerURL = "wss://nlu-00.intelloia.com:38743/intelloid-STT-stream-web/websocket";
+var webServerURL = "wss://nlu-00.intelloia.com:38753/intelloid-STT-stream-web/websocket";
 if (langParam) webServerURL = webServerURL + "?language=" + langParam;
 
 //show transcribing result text string
